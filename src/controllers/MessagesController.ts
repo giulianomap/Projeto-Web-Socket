@@ -16,6 +16,17 @@ class MessagesController {
 
     return res.json(message);
   }
+
+  // localhost:3000/messages/idDoUsuário
+  async showByUser(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const messagesService = new MessagesService();
+
+    const list = messagesService.listByUser(id);
+
+    return res.json(list);
+  }
 }
 
 export { MessagesController }
